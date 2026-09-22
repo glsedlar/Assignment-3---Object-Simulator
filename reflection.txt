@@ -1,0 +1,57 @@
+Structs vs Classes
+
+In Python, when establishing a class, the attributes and
+methods are both formed completely within the class initialization,
+making the Python way concise and simple. However, in C, separate 
+functions are required, with the structs only holding data and 
+function pointers - not the functions themselves. This makes an
+extra step, where the function must be defined outside of the struct.
+Additionally, the initialization method is not inherently included in
+the setup for a C struct. So where in Python you create a class in its
+entirety in a few lines, all within the group of code, in C there are
+multiple functions required to accomplish the same: the struct itself,
+the functions for the class each in their own separate code blokc, and
+the initialization function for the class.
+
+When a method is called on an object in Python, the interpreter looks
+up the function pointer for that method, and then calls it.
+
+
+Inheritance Implementation
+
+In C, inheritance comes from calling the base struct in the formation 
+of the 'derived' struct. By including the line "Character base;" when
+initializing the Mage and Warrior structs, they inherit the characteristics
+of the Character struct, which can then be built on. Python's approach is
+more concise; when defining the class of Warrior, for example, the syntax
+to determine inheritance would simply be "class Warrior(Character):" which 
+would automatically give Warrior all of the data and functions from the 
+Character class.
+
+Python's approach is much more concise, only a few extra characters are
+required to determine inheritance in Python, whereas an extra line of code
+is needed in C. Additionally, C requires the parent struct to be cast to 
+the derived struct in specific functions, but Python does not
+require this step. Overall, the C approach just requires some more code to
+achieve the same result.
+
+Understanding OOP Mechanics
+
+Function points enable polymorphism because the struct can call a different
+function based with the same code. In this assignment, the attack function was
+called the same way in each iteration of the loop, but based on the struct type of 
+the data that was in that index of the loop, a different result printed. 
+
+These patterns would be used in C to allow the same benefits as built-in OOP, 
+while still having the same low overhead and reduced time and pauses that C offers.
+These patterns allow the programmer to group similar objects and their functions to 
+reduce the large amount of code needed to accomplish the same task without these
+patterns. For example, if we want to display information about 100 thermostats all 
+at the same time, instead of having to individually print out the information for
+all 100 thermostats over 100 lines of code, a simple array and loop that cycles 
+through all the thermostats and their information would more simply accomplish
+the same result. If instead of thermostats, we have 100 different types of digital
+measurement tools we had to read, the methods used in this assignment to simulate
+polymorphism would provide the flexibility to use the same array and loop, while
+changing the output based on the type of measurement tool that was being read in that
+instance.
